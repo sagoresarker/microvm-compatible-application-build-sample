@@ -1,0 +1,17 @@
+[Unit]
+Description=Next.js Application
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/app
+ExecStart=/usr/bin/node /app/.next/standalone/server.js
+Restart=always
+RestartSec=10
+Environment=NODE_ENV=production
+Environment=PORT=3000
+Environment=HOSTNAME=0.0.0.0
+
+[Install]
+WantedBy=multi-user.target
