@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=root
-WorkingDirectory=/app
+WorkingDirectory=/app/.next/standalone
 ExecStart=/usr/bin/node /app/.next/standalone/server.js
 Restart=always
 RestartSec=10

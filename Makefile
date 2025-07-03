@@ -1,6 +1,6 @@
 IMAGE_NAME := nextjs-app-demo-for-vm
 DOCKER_USERNAME := poridhi
-TAG = v1.0.4
+TAG = v1.0.7
 
 build:
 	@ docker build --platform linux/amd64 -t $(IMAGE_NAME):$(TAG) -f Dockerfile .

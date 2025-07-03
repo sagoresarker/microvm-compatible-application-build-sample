@@ -25,6 +25,16 @@ RUN npm run build
 # Create .next directory with proper permissions
 RUN mkdir -p .next
 
+# Copy static files and public assets to standalone directory
+# This is crucial for Next.js standalone builds to serve static content
+RUN cp -r .next/static .next/standalone/.next/static
+RUN cp -r public .next/standalone/public
+
+# List files to verify the copy was successful (for debugging)
+RUN ls -la .next/standalone/
+RUN ls -la .next/standalone/.next/
+RUN ls -la .next/standalone/public/
+
 # Copy systemd service file
 COPY nextjs-app.service /etc/systemd/system/nextjs-app.service
 
